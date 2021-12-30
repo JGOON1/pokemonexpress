@@ -8,13 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <%= quote %>
-
-<div>
-    <a href="/:pokemon/levelup"> <%= move[0]['o'] %> </a> <br>
-    <a href="/wrong"> <%= move[1]['o'] %> </a> <br>
-    <a href="/wrong"> <%= move[2]['o'] %> </a> <br>
-</div>
-
+    
+    <div class="container" id="home">
+        <p><%= quote %></p>  <br>
+        <div class="opContainer">
+            <a class="options" href="/wrong"> <%= move[1]['o'] %> </a> <br>
+            <a class="options" href="/wrong"> <%= move[2]['o'] %> </a> <br>
+            <a class="options" href="/:pokemon/levelup"> <%= move[0]['o'] %> </a> <br>
+        </div>
+    </div> 
+    <br>
+    <div class="pokeImg">
+        <img src="https://www.writeups.org/wp-content/uploads/Machop-Pokemon.jpg" alt="">
+        <img src="https://static.pokemonpets.com/images/monsters-images-800-800/72-Tentacool.webp" alt="">
+        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/069.png" alt="">
+    </div>
 </body>
 </html>
+

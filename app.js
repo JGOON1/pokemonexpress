@@ -8,22 +8,22 @@ app.set("view engine", "ejs")
 app.use(express.static(__dirname + '/public'));
 
 app.get("/", (req, res) => {
-    let quote = "choose you starter pokemon"
+    let quote = "Choose your starter pokemon"
     res.render("home", {quote:quote})
 });
 
 
 app.get("/:pokemon/question1", (req,res) => {
-let quote = "Who would you like to battle against";
+let quote = "Who would you like to battle against?";
 const q1 = [
     {
         o: 'Vulpix'
     },
     {
-        o: 'oddish'
+        o: 'Oddish'
     },
     {
-        o: 'polliwag'
+        o: 'Polliwag'
     }
 ];
 
@@ -123,7 +123,7 @@ app.get("/:pokemon/gymf", (req,res) => {
 
 app.get("/:pokemon/scenario", (req,res) => {
     let quote = "Choose your path"
-    let message = "would you like to go to the grass fields or the forest"
+    let message = "Would you like to go to the grass fields or the forest?"
 
      res.render("scenario", {quote: quote, message:message});
 })

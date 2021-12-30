@@ -8,13 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-    <%= quote %>
-
-<div>
-    <a href="/wrong"> <%= choices[0]['o'] %> </a> <br>
-    <a href="/:pokemon/question2"> <%= choices[1]['o'] %> </a> <br>
-    <a href="/wrong"> <%= choices[2]['o'] %> </a> <br>
-</div>
-
+    <div class="container" id="home">
+        <p><%= quote %></p>  <br>
+        <div class="opContainer">
+            <a class="options" href="/wrong"> <%= choices[0]['o'] %> </a> <br>
+            <a class="options" href="/:pokemon/question2"> <%= choices[1]['o'] %> </a> <br>
+            <a class="options" href="/wrong"> <%= choices[2]['o'] %> </a> <br> 
+        </div>
+    </div> 
+    <br>
+    <div class="pokeImg">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWqYvLVVl0OdJLFjsSyV8qLcwcmy5asGR7hw&usqp=CAU" alt="">
+        <img src="https://img.pokemondb.net/artwork/large/oddish.jpg" alt="">
+        <img src="https://static.pokemonpets.com/images/monsters-images-800-800/2060-Shiny-Poliwag.webp" alt="">
+    </div>
 </body>
 </html>
+

@@ -8,13 +8,19 @@
     <title>Document</title>
 </head>
 <body>
-    <%= quote %>
-
-<div>
-    <a href="/wrong"> <%= choices[0]['o'] %> </a> <br>
-    <a href="/wrong"> <%= choices[1]['o'] %> </a> <br>
-    <a href="/:pokemon/gymp1"> <%= choices[2]['o'] %> </a> <br>
-</div>
-
+    <div class="container" id="home">
+        <p><%= quote %></p>  <br>
+        <div class="opContainer">
+            <a class="options" href="/wrong"> <%= choices[0]['o'] %> </a> <br>
+            <a class="options" href="/wrong"> <%= choices[1]['o'] %> </a> <br>
+            <a class="options" href="/:pokemon/gymp1"> <%= choices[2]['o'] %> </a> <br>
+        </div>
+    </div> 
+    <br>
+    <div class="pokeImg">
+        <img src="https://img.pokemondb.net/artwork/large/diglett-alolan.jpg" alt="">
+        <img src="https://pokestop.io/img/pokemon/zubat-256x256.png" alt="">
+        <img src="https://static.pokemonpets.com/images/monsters-images-800-800/10-Caterpie.webp" alt="">
+    </div>
 </body>
 </html>

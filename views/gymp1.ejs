@@ -8,15 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <%= quote %> <br>
-    <%= message %> <br>
-    <%= msg %> <br>
+    <div class="container" id="home">
 
-<div>
-    <a href="/:pokemon/gymf"> <%= move[0]['o'] %> </a> <br>
-    <a href="/:pokemon/gymf"> <%= move[1]['o'] %> </a> <br>
-    <a href="/:pokemon/gymp2"> <%= move[2]['o'] %> </a> <br>
-</div>
-
+        <p><%= quote %></p> <br>
+        <p><%= message %></p> <br>
+        <p><%= msg %></p> <br>
+        <div class="opContainer">
+            <a class="options" href="/:pokemon/gymf"> <%= move[0]['o'] %> </a> <br>
+            <a class="options" href="/:pokemon/gymf"> <%= move[1]['o'] %> </a> <br>
+            <a class="options" href="/:pokemon/gymp2"> <%= move[2]['o'] %> </a> <br>
+        </div>
+    </div> 
+    <br>
+    <div class="pokeImg">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/71/DP-Brock.png" alt="">
+        <img src="https://img.pokemondb.net/artwork/large/geodude.jpg" alt="">
+    </div>  
 </body>
 </html>

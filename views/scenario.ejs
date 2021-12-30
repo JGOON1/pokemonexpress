@@ -8,11 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-    <%= quote %> <br>
-    <%= message %> <br>
-
-    <a href="/:pokemon/question1">Grass Fields</a>
-    <a href="/:pokemon/question2">Forest</a>
-
+    <div class="container" id="home">
+        <p><%= quote %></p>  <br>
+        <p><%= message %></p> <br>
+        <div class="opContainer">
+            <a class="options" href="/:pokemon/question1">Grass Fields</a> <br>
+            <a class="options" href="/:pokemon/question2">Forest</a>
+        </div>
+    </div>
+    <div class="pokeImg">
+        <img src="https://img.rankedboost.com/wp-content/uploads/2020/02/Pokemon-Mystery-Dungeon-Rescue-Team-DX-Weather-300x288.jpg" alt="">
+        <img src="https://wallpapercave.com/wp/wp2711099.png" alt="">
+    </div>
 </body>
 </html>
