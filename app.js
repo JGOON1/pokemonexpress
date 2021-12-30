@@ -3,7 +3,9 @@ const express = require("express");
 const app = express();
 const port = 4040;
 
+
 app.set("view engine", "ejs")
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", (req, res) => {
     let quote = "choose you starter pokemon"
@@ -11,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/charmander/question1", (req,res) => {
+app.get("/:pokemon/question1", (req,res) => {
 let quote = "Who would you like to battle against";
 const q1 = [
     {
@@ -28,7 +30,7 @@ const q1 = [
     res.render("question1", {choices: q1, quote: quote});
 });
 
-app.get("/charmander/question1/question2", (req,res) => {
+app.get("/:pokemon/question2", (req,res) => {
     let quote = "Who would you like to battle this time"
     const q2 = [
         {
@@ -45,7 +47,7 @@ app.get("/charmander/question1/question2", (req,res) => {
         res.render("question2", {move: q2, quote: quote});
 });
 
-app.get("/charmander/question1/question2/q3", (req,res) => {
+app.get("/:charmander/q3", (req,res) => {
     let quote = "Last battle before the gym leader!!"
     const q3 = [
         {
@@ -118,6 +120,14 @@ app.get("/:pokemon/gymf", (req,res) => {
     
         res.render("gymf", {move: moves, quote: quote, message: message, msg:msg});
 });
+
+app.get("/:pokemon/scenario", (req,res) => {
+    let quote = "Choose your path"
+    let message = "would you like to go to the grass fields or the forest"
+
+     res.render("scenario", {quote: quote, message:message});
+})
+
 
 app.get("/:pokemon/win", (req,res) => {
     let quote = "Congrats you beat Brock"
