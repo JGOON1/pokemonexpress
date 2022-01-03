@@ -1,16 +1,54 @@
 const express = require("express");
+const res = require("express/lib/response");
+const session = require('express-session');
 
 const app = express();
 const port = process.env.PORT || 4040;
 
 
-app.set("view engine", "ejs")
+app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(session({
+    secret: 'random string',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
 
-app.get("/", (req, res) => {
-    let quote = "Choose your starter pokemon"
-    res.render("home", {quote:quote})
+
+app.get('/', (req, res) => {
+    //now data is exisiting
+    // const session_username = req.session.username
+    const user = req.session ? req.session.username : "user not set"
+    res.render("index", {my_user: user});
 });
+
+app.post("/signup", (req, res) => {
+    const valid_users = ["sue", "joe", "sam"]
+    const user = req.body.username;
+    if (valid_users.includes(user)) {
+        req.session.username = user;
+        res.redirect("/home")
+    } else {
+        res.redirect("/")
+    }
+});
+// have up update other links
+app.get("/home", (req, res) => {
+    let quote = "Choose your starter pokemon"
+    if (req.session && req.session.username) {
+        res.render("home", {user: req.session.username, quote:quote})
+        // res.render("home", {quote:quote})
+    } else {
+        res.redirect("/")
+    }
+});
+
+
+
+
 
 
 app.get("/:pokemon/question1", (req,res) => {
