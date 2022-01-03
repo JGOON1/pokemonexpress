@@ -1,6 +1,7 @@
 const express = require("express");
 const res = require("express/lib/response");
 const session = require('express-session');
+const { param } = require("express/lib/request");
 
 const app = express();
 const port = process.env.PORT || 4040;
@@ -40,7 +41,10 @@ app.post("/signup", (req, res) => {
         {"name": "sam", "password": "sam"}
     ];
     const user = req.body.username;
-    const pass = req.body.password ;
+    const pass = req.body.password;
+
+console.log(req.query)
+    
 
     // invalid_login = params.get("reasons") || null;
 
@@ -55,9 +59,11 @@ app.post("/signup", (req, res) => {
             console.log("user reset")
         })
         // "/?reason=invalid_user"
-        res.redirect("/");
+        res.redirect("/?reason=invalid_user");
     }
 });
+
+
 // have up update other links
 app.get("/home", (req, res) => {
     let quote = "Choose your starter pokemon"
