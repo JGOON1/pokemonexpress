@@ -18,21 +18,42 @@ app.use(session({
   }))
 
 
-app.get('/', (req, res) => {
+  app.get('/', (req, res) => {
+    let user = "";
+    // let invalid_login = false;
     //now data is exisiting
     // const session_username = req.session.username
-    const user = req.session ? req.session.username : "user not set"
+    if (req.session && req.session.username) {
+        user = req.session.username;
+    }
+    // const user = req.session ? req.session.username : "user not set"
     res.render("index", {my_user: user});
+    // , invalid_login:invalid_login
 });
 
 app.post("/signup", (req, res) => {
-    const valid_users = ["sue", "joe", "sam"]
+    const valid_users = [
+        {"name": "sue", "password": "sue"},
+        {"name": "joe", "password": "joe"},
+        {"name": "sam", "password": "sam"}
+    ];
     const user = req.body.username;
-    if (valid_users.includes(user)) {
+    const pass = req.body.password ;
+
+    // invalid_login = params.get("reasons") || null;
+
+    const found_user = valid_users.find(usr => {
+        return usr.name == user && usr.password == pass
+    })
+    if (found_user) {
         req.session.username = user;
         res.redirect("/home")
     } else {
-        res.redirect("/")
+        req.session.destroy(() => {
+            console.log("user reset")
+        })
+        // "/?reason=invalid_user"
+        res.redirect("/");
     }
 });
 // have up update other links
